@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="InvestWatchApp" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +8,7 @@
   <!-- FONTS -->
 
   <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link rel="stylesheet" href="/css/styles.css">
   <!-- EXT SCRIPTS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js" charset="utf-8"></script>
@@ -15,6 +16,20 @@
   <script src="/js/main.js" charset="utf-8"></script>
 </head>
 <body>
-
+  <header>
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <img src="http://www.presentationpro.com/images/product/medium/slide/PPP_CSYMB_LT3_arrow_chart_up.jpg" alt="stock chart" id="logo">
+        <h2 id="title">InvestWatch</h2>
+      </div>
+      <div class="col s12 m6 l6">
+        <form id="header-form" ng-submit="tickerSearch()">
+          <label id='header-label'>Enter Ticker Symbol</label>
+          <input id='header-search' type="text" ng-model="searchTerm" placeholder="AAPL">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </header>
 </body>
 </html>

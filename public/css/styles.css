@@ -1,3 +1,43 @@
 body {
-  background-color: lightblue;
+  background-image: url('/images/marble_texture.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.center {
+  text-align: center;
+}
+header {
+  background-color: rgb(10, 37, 10);
+  border-bottom: 4px solid rgb(24, 142, 21);
+}
+
+#logo {
+  float: left;
+  height: 64px;
+  margin: 1.4rem 1rem 1rem 6rem;
+  border-radius: 8px;
+}
+
+#title {
+  color: rgb(241, 229, 232);
+}
+
+input[type="text"] {
+  background-color: rgb(235,235,235);
+  padding-left: 2%;
+}
+#header-form {
+  margin: 1rem 0 0 7rem;
+}
+#header-label {
+  display: block;
+  color: rgb(245,245,245);
+  font-size: 1rem;
+  margin-bottom: .5rem;
+}
+#header-search {
+  width: 25%;
+  height: 2.75rem;
+  font-size: 2rem;
+  margin-right: .5rem;
 }
