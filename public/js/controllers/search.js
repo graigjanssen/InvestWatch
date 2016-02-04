@@ -1,11 +1,13 @@
 var ctrl = angular.module('searchCtrl', []);
 
-ctrl.controller('SearchController', ['$scope', '$http', function($scope, $http){
+ctrl.controller('SearchController', ['$scope', 'financeApi', function($scope, financeApi){
   $scope.searchTerm = '';
 
   $scope.tickerSearch = function(){
-    $http.get('http://finance.yahoo.com/webservice/v1/symbols/'+ $scope.searchTerm + '/quote?format=json&view=detail').then(function(response){
+    financeApi.getStock($scope.searchTerm).then(function(response){
       console.log(response);
+      var stock = response.data.list.resources[0].resource.fields;
+      console.log(stock);
     });
   };
 }]);
