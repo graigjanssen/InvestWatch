@@ -12,8 +12,11 @@
   <link rel="stylesheet" href="/css/styles.css">
   <!-- EXT SCRIPTS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js" charset="utf-8"></script>
   <!-- LOCAL SCRIPTS -->
   <script src="/js/main.js" charset="utf-8"></script>
+  <script src="/js/controllers/list.js" charset="utf-8"></script>
+  <script src="/js/controllers/detail.js" charset="utf-8"></script>
 </head>
 <body>
   <header>
@@ -26,7 +29,7 @@
         <form id="header-form" ng-submit="tickerSearch()">
           <label id='header-label'>Enter Ticker Symbol</label>
           <input id='header-search' type="text" ng-model="searchTerm" placeholder="AAPL">
-          <button type="submit">Search</button>
+          <button id='header-button' type="submit">Search</button>
         </form>
       </div>
     </div>
