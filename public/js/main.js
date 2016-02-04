@@ -1,4 +1,4 @@
-var app = angular.module('InvestWatchApp', ['ngRoute', 'listCtrl', 'detailCtrl']);
+var app = angular.module('InvestWatchApp', ['ngRoute', 'searchCtrl', 'listCtrl', 'detailCtrl', 'financeApiFactory']);
 
 app.config(['$routeProvider', function($routeProvider){
   $routeProvider.when('/', {
@@ -12,14 +12,4 @@ app.config(['$routeProvider', function($routeProvider){
   .otherwise({
     redirectTo: '/'
   });
-}]);
-
-app.controller('SearchController', ['$scope', '$http', function($scope, $http){
-  $scope.searchTerm = '';
-
-  $scope.tickerSearch = function(){
-    $http.get('http://finance.yahoo.com/webservice/v1/symbols/'+ $scope.searchTerm + '/quote?format=json&view=detail').then(function(response){
-      console.log(response);
-    });
-  };
 }]);

@@ -31,6 +31,9 @@ app.use('/', indexRoute);
 var usersRoute = require('./routes/users');
 app.use('/users', usersRoute);
 
+var financeApiRoute = require('./routes/api/finance');
+app.use('/api/finance', financeApiRoute);
+
 // LISTENING //
 
 var port = process.env.port || 8080;
