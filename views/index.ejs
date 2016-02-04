@@ -19,7 +19,7 @@
   <script src="/js/controllers/detail.js" charset="utf-8"></script>
 </head>
 <body>
-  <header>
+  <header ng-controller="SearchController">
     <div class="row">
       <div class="col s12 m6 l6">
         <img src="http://www.presentationpro.com/images/product/medium/slide/PPP_CSYMB_LT3_arrow_chart_up.jpg" alt="stock chart" id="logo">
@@ -34,5 +34,10 @@
       </div>
     </div>
   </header>
+  <div class="container">
+    <div id="main-content" ng-view>
+
+    </div>
+  </div>
 </body>
 </html>

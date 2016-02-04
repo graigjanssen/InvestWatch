@@ -6,25 +6,26 @@ body {
 .center {
   text-align: center;
 }
+input[type="text"] {
+  background-color: rgb(235,235,235);
+  padding-left: 2%;
+}
+/* HEADER */
 header {
   background-color: rgb(10, 37, 10);
   border-bottom: 4px solid rgb(24, 142, 21);
 }
-
+header .row {
+  margin-bottom: 0;
+}
 #logo {
   float: left;
   height: 64px;
   margin: 1.4rem 1rem 1rem 6rem;
   border-radius: 8px;
 }
-
 #title {
-  color: rgb(241, 229, 232);
-}
-
-input[type="text"] {
-  background-color: rgb(235,235,235);
-  padding-left: 2%;
+  color: rgb(241, 250, 247);
 }
 #header-form {
   margin: .5rem 0 0 7rem;

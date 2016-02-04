@@ -1,15 +1,25 @@
-var app = angular.module('InvestWatchApp', ['$ngRoute', 'listCtrl', 'detailCtrl']);
+var app = angular.module('InvestWatchApp', ['ngRoute', 'listCtrl', 'detailCtrl']);
 
 app.config(['$routeProvider', function($routeProvider){
   $routeProvider.when('/', {
-    templateUrl: '/views/partials/watchlist.html',
+    templateUrl: '/partials/watchlist.html',
     controller: 'WatchlistController'
-  });
-  $routeProivder.when('/:id', {
-    templateUrl: '/views/partials/stock-detail.html',
+  })
+  .when('/:id', {
+    templateUrl: '/partials/stock-detail.html',
     controller: 'StockDetailController'
-  });
-  $routeProvider.otherwise({
+  })
+  .otherwise({
     redirectTo: '/'
   });
+}]);
+
+app.controller('SearchController', ['$scope', '$http', function($scope, $http){
+  $scope.searchTerm = '';
+
+  $scope.tickerSearch = function(){
+    $http.get('http://finance.yahoo.com/webservice/v1/symbols/'+ $scope.searchTerm + '/quote?format=json&view=detail').then(function(response){
+      console.log(response);
+    });
+  };
 }]);
