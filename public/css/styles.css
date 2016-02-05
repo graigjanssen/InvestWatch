@@ -6,10 +6,12 @@ body {
 .center {
   text-align: center;
 }
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
   background-color: rgb(235,235,235);
   padding-left: 2%;
 }
+
 /* HEADER */
 header {
   background-color: rgb(10, 37, 10);
@@ -42,7 +44,7 @@ header .row {
   margin-top: .5rem;
   margin-right: .5rem;
 }
-#header-button {
+.header-button {
   font-size: 1.25rem;
   transform: translateY(-4px);
 }
@@ -94,4 +96,13 @@ header .row {
 }
 .detail-value {
   font-size: 1.4rem;
+}
+
+/*  USER MANAGER  */
+
+.usermgr {
+
+}
+.usermgr-box {
+
 }
