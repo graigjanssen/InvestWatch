@@ -8,12 +8,12 @@ api.factory('usersApi', ['$http', function($http){
   usersInterface.currentUser = function(){
     return $http.get(baseUrl + 'current');
   };
-  
+
   usersInterface.createUser = function( newUserData ) {
     return $http.post(baseUrl, newUserData);
   };
 
-  usersInterace.logInUser = function( userData ){
+  usersInterface.logInUser = function( userData ){
     return $http.post(baseUrl + 'authenticate', userData);
   };
 

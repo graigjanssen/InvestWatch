@@ -18,7 +18,7 @@ UserSchema.pre('save', function(next){
   if (this.isModified('password')){
     this.password = bcrypt.hashSync(this.password, 10);
   }
-  return next;
+  return next();
 });
 
 UserSchema.methods.setToken = function(err, done){
