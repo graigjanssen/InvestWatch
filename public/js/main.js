@@ -5,7 +5,7 @@ app.config(['$routeProvider', function($routeProvider){
     templateUrl: '/partials/watchlist.html',
     controller: 'WatchlistController'
   })
-  .when('/:id', {
+  .when('/:ticker', {
     templateUrl: '/partials/stock-detail.html',
     controller: 'StockDetailController'
   })
