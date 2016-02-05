@@ -1,4 +1,5 @@
-var app = angular.module('InvestWatchApp', ['ngRoute', 'searchCtrl', 'listCtrl', 'detailCtrl', 'financeApiFactory']);
+var app = angular.module('InvestWatchApp',
+  ['ngRoute', 'searchCtrl', 'listCtrl', 'detailCtrl', 'financeApiFactory', 'usersApiFactory']);
 
 app.config(['$routeProvider', function($routeProvider){
   $routeProvider.when('/', {
