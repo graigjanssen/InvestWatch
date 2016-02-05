@@ -46,3 +46,52 @@ header .row {
   font-size: 1.25rem;
   transform: translateY(-4px);
 }
+
+/* STOCK DETAIL */
+
+#detail-box {
+  margin-top: 2rem;
+  padding: 0;
+  background-color: rgba(211, 222, 230, .8);
+  border: 1px solid rgb(155, 162, 166);
+  border-radius: 6px;
+}
+
+.detail-name {
+  background-color: rgb(38, 40, 60);
+  color: rgb(225, 230, 235);
+  font-size: 3.2rem;
+  margin-top: 0;
+  margin-bottom: .75rem;
+  padding: .75rem 1.5rem;
+  border-bottom: 3px solid rgb(87, 96, 106);
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.detail-block {
+  padding: 0 0 1rem 1rem;
+}
+
+.detail-price, .detail-change {
+  font-size: 2.4rem;
+  padding: 2.25rem;
+  font-weight: bolder;
+}
+.detail-third {
+  display: inline-block;
+  width: 32%;
+  text-align: center;
+}
+.detail-half {
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+}
+.detail-label {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.detail-value {
+  font-size: 1.4rem;
+}

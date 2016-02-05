@@ -7,11 +7,4 @@ ctrl.controller('SearchController', ['$scope', '$location', function($scope, $lo
     $location.path($scope.searchTerm);
     $scope.searchTerm = '';
   };
-
-  // $scope.tickerSearch = function(){
-  //   financeApi.getStock($scope.searchTerm).then(function(response){
-  //     var stock = response.data.list.resources[0].resource.fields;
-  //     console.log(stock);
-  //   });
-  // };
 }]);
