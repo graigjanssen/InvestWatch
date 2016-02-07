@@ -23,7 +23,7 @@ UserSchema.pre('save', function(next){
 
 UserSchema.methods.setToken = function(err, done){
   var scope = this;
-  crypto.randomByes(256, function(err, buf){
+  crypto.randomBytes(256, function(err, buf){
     if (err) {return done(err); }
     scope.token = buf;
     scope.save(function(err){
