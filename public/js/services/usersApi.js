@@ -17,5 +17,9 @@ api.factory('usersApi', ['$http', function($http){
     return $http.post(baseUrl + 'authenticate', userData);
   };
 
+  usersInterface.addStock = function(ticker){
+    return $http.post(baseUrl + 'stocks', {symbol: ticker});
+  };
+
   return usersInterface;
 }]);

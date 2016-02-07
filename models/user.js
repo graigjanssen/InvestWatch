@@ -3,8 +3,7 @@ var mongoose  = require('mongoose'),
     crypto    = require('crypto');
 
 var StockSchema = mongoose.Schema({
-  ticker: {type: String},
-  name: {type: String}
+  symbol: {type: String},
 });
 
 var UserSchema = mongoose.Schema({

@@ -31,14 +31,30 @@
 <div class="watchlist" ng-show="loggedIn">
   <div class="row dashboard-section">
     <div class="col s12 dashboard">
-      <h5 class="dashboard-msg">Welcome, {{username}}!</h5>
+      <h5 class="dashboard-msg">Hello, {{username}}!</h5>
       <button class="btn btn-logout" ng-click="logOut()">Log Out</button>
     </div>
   </div>
 
-  <div class="row watchlist-content">
-    <div class="col s12 offset-m2 m8 offset-l3 l6 empty-list" ng-show="emptyList">
-      <h5>Your watchlist is currently empty.  Search for stocks by ticker symbol and click 'Add'.</h5>
+  <div class="watchlist-content">
+    <div class="row">
+      <div class="col s12 offset-m2 m8 offset-l3 l6 empty-list" ng-show="emptyList">
+        <h5>Your watchlist is currently empty.  Search for stocks by ticker symbol and click 'Add'.</h5>
+      </div>
+    </div>
+    <div class="watchlist-box" ng-hide="emptyList">
+      <div class="row">
+        <div class="col s2"><h5>Symbol</h5></div>
+        <div class="col s4"><h5>Company</h5></div>
+        <div class="col s3"><h5>Price</h5></div>
+        <div class="col s3"><h5>Remove</h5></div>
+      </div>
+      <div class="row" ng-repeat="userStock in userStocks">
+        <div class="col s2"><h5>{{userStock.symbol}}</h5></div>
+        <div class="col s4"><h5>{{userStock.issuer_name}}</h5></div>
+        <div class="col s3"><h5>{{userStock.price}}</h5></div>
+        <div class="col s3"><h5>&nbsp;</h5></div>
+      </div>
     </div>
   </div>
 </div>

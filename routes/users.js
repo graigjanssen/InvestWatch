@@ -24,14 +24,8 @@ router.get('/current', function(req, res){
 // NEW USER SIGN UP //
 
 router.post('/', function(req, res){
-  console.log(req.body);
   var newUser = new User( req.body );  // Make new user from sign up form
-  console.log(newUser);
   newUser.save(function(err, dbUser){
-    if (err){
-      console.log('Error whilst savingeth: ', err);
-    }
-    console.log('dbUser: ', dbUser);
     res.json(dbUser);  // Send the new user as json
   });
 });
@@ -62,9 +56,10 @@ router.post('/authenticate', function(req, res){  // POST request to /api/users/
 
 router.post('/stocks', function(req, res){
   var currentUser = req.user;
-  var stockData = req.body.stock;
+  var stockData = req.body;
   currentUser.stocks.push(stockData);
-  currentUser.save(function(err){
+  currentUser.save(function(err, dbUser){
+    console.log('User after save: ', dbUser);
     res.json({description: 'stock saved'});
   });
 });

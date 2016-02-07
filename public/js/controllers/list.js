@@ -54,6 +54,7 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', functi
   function getUserData(){
     usersApi.currentUser().then(function(response){
       var user = response.data.user;
+      console.log(user);
       $scope.username = user.username;
       $scope.userStocks = user.stocks;
       if ($scope.userStocks.length === 0){

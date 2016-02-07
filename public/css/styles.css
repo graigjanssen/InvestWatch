@@ -131,6 +131,10 @@ header .row {
 .detail-value {
   font-size: 1.4rem;
 }
+.user-action {
+  margin: 1rem 0;
+  text-align: center;
+}
 
 /*  USER MANAGER  */
 

@@ -26,6 +26,17 @@
         <h5 class="detail-label">52w Low</h5>
         <h5 class="detail-value">{{stock.year_low | currency}}</h5>
       </div>
+      <div class="user-action">
+        <div class="add-stock" ng-show="loggedIn">
+          <form ng-submit="stockToWatchList()">
+            <input type="hidden" ng-model=stock.symbol>
+            <button type="submit" class="btn">Add to Watchlist</button>
+          </form>
+        </div>
+        <div class="add-stock-msg" ng-hide="loggedIn">
+          <h5>Please log in to add stocks to your watchlist.</h5>
+        </div>
+      </div>
     </div>
   </div>
 </div>
