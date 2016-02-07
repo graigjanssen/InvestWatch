@@ -8,7 +8,6 @@ ctrl.controller('StockDetailController',
     function tickerSearch(ticker){
       financeApi.getStock(ticker).then(function(response){
         $scope.stock = response.data.list.resources[0].resource.fields;
-        console.log($scope.stock);
       });
     }
 

@@ -1,7 +1,8 @@
 var ctrl = angular.module('listCtrl', []);
 
 ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', function($scope, $cookies, usersApi){
-  $scope.currentUser = '';
+
+  // USER SIGN UP //
 
   $scope.newUser = {
     username: null,
@@ -15,6 +16,8 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', functi
     });
   };
 
+  // USER LOG IN/OUT //
+
   $scope.user = {
     username: null,
     password: null
@@ -22,23 +25,44 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', functi
 
   $scope.logInUser = function(){
     usersApi.logInUser($scope.user).then(function(response){
-      $cookies.put('token', response.data.token);
+      if (response.data.description === 'invalid'){
+        $scope.msg = "Something went horribly awry.  Please try again, and don't screw it up this time.";
+      } else {
+        $cookies.put('token', response.data.token);
+      }
       $scope.user = {};
+      updateView();
     });
   };
 
-  function showCookie(){
-    if ($cookies.get('token')){
-      console.log('Logged in');
+  $scope.logOut = function() {
+    $cookies.remove('token');
+    updateView();
+  };
+
+  // MAKE VIEW DEPENDENT ON LOG IN STATUS //
+
+  function updateView() {
+    if ($cookies.get('token')) {
+      $scope.loggedIn = true;
+      getUserData();
     } else {
-      console.log('Logged out');
+      $scope.loggedIn = false;
     }
   }
-  function removeCookie(){
-    $cookies.remove('token');
+
+  function getUserData(){
+    usersApi.currentUser().then(function(response){
+      var user = response.data.user;
+      $scope.username = user.username;
+      $scope.userStocks = user.stocks;
+      if ($scope.userStocks.length === 0){
+        $scope.emptyList = true;
+      } else {
+        $scope.emptyList = false;
+      }
+    });
   }
-  showCookie();
-  removeCookie();
 
-
+  updateView();
 }]);
