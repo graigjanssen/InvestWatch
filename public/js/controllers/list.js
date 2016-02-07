@@ -1,7 +1,9 @@
 var ctrl = angular.module('listCtrl', []);
 
-ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', function($scope, $cookies, usersApi){
+ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'financeApi', function($scope, $cookies, usersApi, financeApi){
 
+  $scope.stocks = [];
+  
   // USER SIGN UP //
 
   $scope.newUser = {
@@ -54,14 +56,24 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', functi
   function getUserData(){
     usersApi.currentUser().then(function(response){
       var user = response.data.user;
-      console.log(user);
       $scope.username = user.username;
       $scope.userStocks = user.stocks;
       if ($scope.userStocks.length === 0){
         $scope.emptyList = true;
       } else {
         $scope.emptyList = false;
+        getUserStocksData($scope.userStocks);
       }
+    });
+  }
+
+  function getUserStocksData(userStocks){
+    userStocks.forEach(function(stock){
+      var ticker = stock.symbol;
+      financeApi.getStock(ticker).then(function(response){
+        var stock = response.data.list.resources[0].resource.fields;
+        $scope.stocks.push(stock);
+      });
     });
   }
 
