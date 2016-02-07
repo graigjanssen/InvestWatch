@@ -45,17 +45,17 @@
     </div>
 
     <div class="watchlist-box" ng-hide="emptyList">
-      <div class="row">
+      <div class="row watchlist-head">
         <div class="col s2"><h5>Symbol</h5></div>
         <div class="col s4"><h5>Company</h5></div>
         <div class="col s3"><h5>Price</h5></div>
         <div class="col s3"><h5>Remove</h5></div>
       </div>
-      <div class="row" ng-repeat="stock in stocks">
+      <div class="row watchlist-row" ng-repeat="stock in stocks">
         <div class="col s2"><a ng-href="#/stocks/{{stock.symbol}}"><h5>{{stock.symbol}}</h5></a></div>
         <div class="col s4"><h5>{{stock.issuer_name}}</h5></div>
         <div class="col s3"><h5>{{stock.price | currency}}</h5></div>
-        <div class="col s3"><button class="btn delete-btn" ng-click=deleteStock(stock.symbol)>Remove</button></div>
+        <div class="col s3"><button class="btn-flat delete-btn" ng-click=deleteStock(stock.symbol)>Remove</button></div>
       </div>
     </div>
   </div>
