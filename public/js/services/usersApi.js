@@ -21,5 +21,9 @@ api.factory('usersApi', ['$http', function($http){
     return $http.post(baseUrl + 'stocks', {symbol: ticker});
   };
 
+  usersInterface.deleteStock = function(ticker){
+    return $http.delete(baseUrl + 'stocks/' + ticker);
+  };
+
   return usersInterface;
 }]);

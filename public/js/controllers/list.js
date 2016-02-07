@@ -3,7 +3,7 @@ var ctrl = angular.module('listCtrl', []);
 ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'financeApi', function($scope, $cookies, usersApi, financeApi){
 
   $scope.stocks = [];
-  
+
   // USER SIGN UP //
 
   $scope.newUser = {
@@ -45,6 +45,7 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'finan
   // MAKE VIEW DEPENDENT ON LOG IN STATUS //
 
   function updateView() {
+    $scope.stocks = [];
     if ($cookies.get('token')) {
       $scope.loggedIn = true;
       getUserData();
@@ -58,6 +59,7 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'finan
       var user = response.data.user;
       $scope.username = user.username;
       $scope.userStocks = user.stocks;
+      console.log('userStocks: ', $scope.userStocks);
       if ($scope.userStocks.length === 0){
         $scope.emptyList = true;
       } else {
@@ -66,6 +68,7 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'finan
       }
     });
   }
+  // USE SYMBOLS FROM USERS STOCKS TO GET COMPANY NAMES AND UPDATED PRICES //
 
   function getUserStocksData(userStocks){
     userStocks.forEach(function(stock){
@@ -76,6 +79,12 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'finan
       });
     });
   }
+ // REMOVE STOCK FROM USER WATCHLIST //
 
+  $scope.deleteStock = function(ticker) {
+    usersApi.deleteStock(ticker).then(function(response){
+      updateView();
+    });
+  };
   updateView();
 }]);

@@ -59,8 +59,24 @@ router.post('/stocks', function(req, res){
   var stockData = req.body;
   currentUser.stocks.push(stockData);
   currentUser.save(function(err, dbUser){
-    console.log('User after save: ', dbUser);
     res.json({description: 'stock saved'});
+  });
+});
+
+// DELETE STOCK FROM WATCHLIST //
+
+router.delete('/stocks/:ticker', function(req, res){
+  var currentUser = req.user;
+  var symbolToDelete = req.params.ticker;
+  var userStocks = currentUser.stocks;
+  userStocks.forEach(function(stock){
+    if (stock.symbol === symbolToDelete ) {
+      var index = userStocks.indexOf(stock);
+      userStocks.splice(index, 1);
+    }
+  });
+  currentUser.save(function(err, dbUser){
+    res.json({description: symbolToDelete + ' removed'});
   });
 });
 
