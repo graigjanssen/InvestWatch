@@ -1,3 +1,4 @@
+<!-- USER MANAGER (IF NOT SIGNED UP/LOGGED IN) -->
 <div class="usermgr" ng-hide="loggedIn">
 
   <div class="row" ng-show="msg">
@@ -28,6 +29,7 @@
   </div>
 </div>
 
+<!-- USER WATCHLIST (ONLY IF LOGGED IN) -->
 <div class="watchlist" ng-show="loggedIn">
   <div class="row dashboard-section">
     <div class="col s12 dashboard">
@@ -46,16 +48,16 @@
 
     <div class="watchlist-box" ng-hide="emptyList">
       <div class="row watchlist-head">
-        <div class="col s2"><h5>Symbol</h5></div>
+        <div class="col s3"><h5>Symbol</h5></div>
         <div class="col s4"><h5>Company</h5></div>
         <div class="col s3"><h5>Price</h5></div>
-        <div class="col s3"><h5>Remove</h5></div>
+        <div class="col s2"><h5>&nbsp;</h5></div>
       </div>
       <div class="row watchlist-row" ng-repeat="stock in stocks">
-        <div class="col s2"><a ng-href="#/stocks/{{stock.symbol}}"><h5>{{stock.symbol}}</h5></a></div>
+        <div class="col s3"><a ng-href="#/stocks/{{stock.symbol}}"><h5>{{stock.symbol}}</h5></a></div>
         <div class="col s4"><h5>{{stock.issuer_name}}</h5></div>
         <div class="col s3"><h5>{{stock.price | currency}}</h5></div>
-        <div class="col s3"><button class="btn-flat delete-btn" ng-click=deleteStock(stock.symbol)>Remove</button></div>
+        <div class="col s2"><button class="btn-flat delete-btn" ng-click=deleteStock(stock.symbol)>Remove</button></div>
       </div>
     </div>
   </div>
