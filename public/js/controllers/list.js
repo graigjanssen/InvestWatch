@@ -13,7 +13,10 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'finan
 
   $scope.createUser = function(){
     usersApi.createUser($scope.newUser).then(function(response){
-      console.log(response);
+      var data = response.data;
+      if (data.username){
+        $scope.msg = "Welcome " + data.username + ", please log in to get started";
+      }
       $scope.newUser = {};
     });
   };
@@ -28,9 +31,10 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'finan
   $scope.logInUser = function(){
     usersApi.logInUser($scope.user).then(function(response){
       if (response.data.description === 'invalid'){
-        $scope.msg = "Something went horribly awry.  Please try again, and don't screw it up this time.";
+        $scope.msg = "Something went horribly awry.  Please try again.";
       } else {
         $cookies.put('token', response.data.token);
+        $scope.msg = '';
       }
       $scope.user = {};
       updateView();

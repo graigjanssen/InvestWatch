@@ -47,6 +47,26 @@ header .row {
 .header-button {
   font-size: 1.25rem;
   transform: translateY(-4px);
+  background-color: rgb(7, 107, 179);
+}
+.header-button:hover {
+  background-color: rgb(21, 124, 199);
+}
+/* USER MANAGER */
+
+.usermgr-msg h5 {
+  font-size: 1.25rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: rgba(243, 245, 250, .45);
+}
+.usermgr-submit {
+  background-color: rgb(15, 171, 58);
+  width: 80%;
+  margin: .5rem 10%;
+}
+.usermgr-submit:hover {
+  background-color: rgb(31, 184, 73);
 }
 /* DASHBOARD */
 
@@ -85,6 +105,8 @@ header .row {
 }
 
 .watchlist-box {
+  width: 90%;
+  margin: 1rem 5%;
   background-color: rgba(211, 222, 230, .8);
   padding: 0 .75rem;
   border: 1px solid rgb(155, 162, 166);
