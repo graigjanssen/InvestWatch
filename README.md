@@ -1,4 +1,4 @@
-# InvestWatch
+# [InvestWatch](https://still-hollows-73515.herokuapp.com/#/)
 ####Search for stocks to get up to date prices and add companies to your watchlist
 InvestWatch is a straightforward tool for beginner investors to gather a list of companies of interest and track their stock performance.  In the latest version of the app, users can:
 - Search for companies by stock ticker symbol
