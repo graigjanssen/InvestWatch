@@ -26,8 +26,8 @@ app.use(loadUser);
 
 // DATABASE //
 
-var dbPath = process.env.MONGOLAB_URI || 'mongodb://localhost/investwatch';
-mongoose.connect(dbPath);
+var dbPath = 'mongodb://localhost/investwatch';
+mongoose.connect(process.env.MONGOLAB_URI || dbPath);
 
 // ROUTING //
 
@@ -42,7 +42,7 @@ app.use('/api/finance', financeApiRoute);
 
 // LISTENING //
 
-var port = process.env.port || 8080;
-app.listen(port, function(){
+var port = 8080;
+app.listen(process.env.PORT || port, function(){
   console.log('Listening on port ' + port);
 });
