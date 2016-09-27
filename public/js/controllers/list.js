@@ -72,13 +72,22 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'finan
       }
     });
   }
+
+  function formatName(name){
+    var cutoff = name.indexOf('Common') - 1;
+    return name.slice(0, cutoff);
+  }
+  
   // USE SYMBOLS FROM USERS STOCKS TO GET COMPANY NAMES AND UPDATED PRICES //
 
   function getUserStocksData(userStocks){
     userStocks.forEach(function(stock){
       var ticker = stock.symbol;
       financeApi.getStock(ticker).then(function(response){
-        var stock = response.data.list.resources[0].resource.fields;
+        var stock = response.data.query.results.quote;
+        if (stock.Name.match(/Common/g)){
+          stock.Name = formatName(stock.Name);
+        }
         $scope.stocks.push(stock);
       });
     });

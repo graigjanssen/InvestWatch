@@ -54,9 +54,9 @@
         <div class="col s2"><h5>&nbsp;</h5></div>
       </div>
       <div class="row watchlist-row" ng-repeat="stock in stocks">
-        <div class="col s3"><a ng-href="#/stocks/{{stock.symbol}}"><h5>{{stock.symbol}}</h5></a></div>
-        <div class="col s4"><h5>{{stock.issuer_name}}</h5></div>
-        <div class="col s3"><h5>{{stock.price | currency}}</h5></div>
+        <div class="col s3"><a ng-href="#/stocks/{{stock.symbol.toUpperCase()}}"><h5>{{stock.symbol}}</h5></a></div>
+        <div class="col s4"><h5>{{stock.Name}}</h5></div>
+        <div class="col s3"><h5>{{stock.LastTradePriceOnly | currency}}</h5></div>
         <div class="col s2"><button class="btn-flat delete-btn" ng-click=deleteStock(stock.symbol)>Remove</button></div>
       </div>
     </div>

@@ -7,9 +7,17 @@ ctrl.controller('StockDetailController',
 
     function tickerSearch(ticker){
       financeApi.getStock(ticker).then(function(response){
-        $scope.stock = response.data.list.resources[0].resource.fields;
+        $scope.stock = response.data.query.results.quote;
+        //Quick fix to help format company name
+        if ($scope.stock.Name.match(/Common/g)){
+          $scope.stock.Name = formatName($scope.stock.Name);
+        }
         checkUserStatus();
       });
+    }
+    function formatName(name){
+      var cutoff = name.indexOf('Common') - 1;
+      return name.slice(0, cutoff);
     }
 
     var ticker = $routeParams.ticker;

@@ -1,30 +1,30 @@
 <div class="row">
   <div id="detail-box" class="col s12 m10 offset-m1 l8 offset-l2">
-    <h3 class="detail-name">{{stock.issuer_name}}</h3>
+    <h3 class="detail-name">{{stock.Name}}</h3>
     <div class="detail-block">
-      <span class="detail-price">{{stock.price | currency}}</span>
-      <span class="detail-change">{{stock.chg_percent | number : 2}}%</span>
+      <span class="detail-price">{{stock.LastTradePriceOnly | currency}}</span>
+      <span class="detail-change">{{stock.PercentChange}}</span>
       <hr>
       <div class="detail-third">
         <h5 class="detail-label">Today's High</h5>
-        <h5 class="detail-value">{{stock.day_high | currency}}</h5>
+        <h5 class="detail-value">{{stock.DaysHigh | currency}}</h5>
       </div>
       <div class="detail-third">
         <h5 class="detail-label">Today's Low</h5>
-        <h5 class="detail-value">{{stock.day_low | currency}}</h5>
+        <h5 class="detail-value">{{stock.DaysLow | currency}}</h5>
       </div>
       <div class="detail-third">
         <h5 class="detail-label">Volume</h5>
-        <h5 class="detail-value">{{stock.volume | number}}</h5>
+        <h5 class="detail-value">{{stock.Volume | number}}</h5>
       </div>
       <br>
       <div class="detail-half">
         <h5 class="detail-label">52w High</h5>
-        <h5 class="detail-value">{{stock.year_high | currency}}</h5>
+        <h5 class="detail-value">{{stock.YearHigh | currency}}</h5>
       </div>
       <div class="detail-half">
         <h5 class="detail-label">52w Low</h5>
-        <h5 class="detail-value">{{stock.year_low | currency}}</h5>
+        <h5 class="detail-value">{{stock.YearLow | currency}}</h5>
       </div>
       <div class="user-action">
         <div class="add-stock" ng-show="loggedIn">
