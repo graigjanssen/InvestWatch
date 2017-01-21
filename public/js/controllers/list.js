@@ -77,7 +77,7 @@ ctrl.controller('WatchlistController', ['$scope', '$cookies', 'usersApi', 'finan
     var cutoff = name.indexOf('Common') - 1;
     return name.slice(0, cutoff);
   }
-  
+
   // USE SYMBOLS FROM USERS STOCKS TO GET COMPANY NAMES AND UPDATED PRICES //
 
   function getUserStocksData(userStocks){
