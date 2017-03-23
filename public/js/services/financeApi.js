@@ -6,7 +6,7 @@ api.factory('financeApi', ['$http', function($http){
   var financeInterface = {};
 
   financeInterface.getStock = function(ticker){
-    return $http.get( baseUrl + ticker + '%22)%0A%09%09&format=json&env=http%3A%2F%2Fdatatables.org%2Falltables.env');
+    return $http.get( baseUrl + ticker + '%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=');
   };
 
   return financeInterface;
